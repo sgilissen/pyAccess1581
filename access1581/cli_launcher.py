@@ -33,7 +33,8 @@ class launcher:
         }
         self.diskFormatTypes = {
             "cbm1581" : diskFormat1581,
-            "ibmdos"  : diskFormatDOS
+            "ibmdos"  : diskFormatDOS,
+            "amigaadf": diskFormatAmigaADF
         }
         self.defaultDisktype = 'cbm1581'
         self.defaultOutputImageName = \

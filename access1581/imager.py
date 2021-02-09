@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf8
 
-'''
+"""
     Copyright (C) 2019  Henning Pingel
 
     This program is free software: you can redistribute it and/or modify
@@ -17,7 +17,7 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-'''
+"""
 
 import ast
 import re
@@ -27,12 +27,13 @@ import hashlib
 from access1581.arduinointerface import *
 from access1581.diskformats import *
 
+
 class IBMDoubleDensityFloppyDiskImager:
-    '''
+    """
     loops over all 80 tracks using both heads
     and collects all the sector data of all tracks
     to store it into an image file
-    '''
+    """
     def __init__( self, diskFormat, imagename, retries, serialDevice, storeBitstream = False, stopOnError=False):
         print ("pyAccess1581 - Copyright (C) 2019  Henning Pingel")
         print ("Reusing: Arduino Amiga Floppy Disk Reader/Writer Firmware - Copyright (C) 2019  Robert Smith")
@@ -80,12 +81,13 @@ class IBMDoubleDensityFloppyDiskImager:
                 f.write(repr(rawTracks))
         vldtr.printSerialStats()
 
+
 class SingleTrackSectorListValidator:
-    '''
+    """
     asks track reader to read a specific track from disk (processTrack). gets
     structured data of all found sectors of one track. validates crc values and
     manages optional read retries.
-    '''
+    """
     def __init__(self, retries, diskFormat, arduinoInterface, storeBitstream = False, stopOnError = False):
         self.maxRetries = retries
         self.diskFormat = diskFormat
@@ -200,6 +202,7 @@ class SingleTrackSectorListValidator:
         infostring += "FAILED" if crcCheck is False else "SUCCESSFUL"
         print ("  DEBUGINFO - Sector properties: "+ infostring)
 
+
 class SingleIBMTrackSectorParser:
     '''
     reads the requested track from the disk parses the data into complete
@@ -245,7 +248,7 @@ class SingleIBMTrackSectorParser:
         return result
 
     def convertBitstreamBytes( self, data, flagHexInt ):
-        if data is "":
+        if data == "":
             return ""
         ba = bitstring.BitArray('0b'+data )
         return ba.hex if flagHexInt is True else ba.int

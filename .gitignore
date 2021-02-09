@@ -2,3 +2,11 @@ raw_debug_image_d81.py
 image_cbm1581.d81
 image_ibmdos.img
 access1581/__pycache__
+
+.idea/
+.idea/*
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class

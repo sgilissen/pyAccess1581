@@ -72,3 +72,14 @@ class diskFormat1581(diskFormatDOS):
         self.expectedSectorsPerTrack = 10
         self.swapsides              = True
         self.imageExtension         = 'd81'
+
+
+class diskFormatAmigaADF(diskFormatRoot):
+    def __init__(self):
+        super().__init__()
+        self.name = 'amigaadf'
+        self.imageExtension = 'adf'
+        self.expectedSectorsPerTrack = 11
+        self.sectorLength = 1760*8   # TODO: Check if this is correct, found on the internet
+
+

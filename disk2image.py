@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf8
 
-'''
+"""
     Copyright (C) 2019  Henning Pingel
 
     This program is free software: you can redistribute it and/or modify
@@ -17,20 +17,23 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-'''
+"""
 
-import sys, time
+import sys
+import time
 from access1581.cli_launcher import *
+
 
 def main():
     try:
         starttime = time.time()
         launcher()
-        duration = int((time.time() - starttime)*100)/100
-        print  ("Estimated total duration            : " + str(duration) + " seconds")
+        duration = int((time.time() - starttime) * 100) / 100
+        print("Estimated total duration            : " + str(duration) + " seconds")
     except:
         print("Unexpected error:", sys.exc_info()[0])
         raise
+
 
 if __name__ == '__main__':
     main()
